@@ -2,7 +2,6 @@ package com.javt.spark.examples
 
 import _root_.org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.log4j.Logger
-import org.apache.log4j.PropertyConfigurator
 import org.apache.spark.SparkConf
 
 import java.util.Properties
@@ -27,19 +26,23 @@ object HelloSpark extends Serializable {
         .getOrCreate()
 
       val surveyRawDF = loadSurveyDF(spark, args(0))
-
-      val countDF = surveyRawDF
-        .where("Age < 40")
-        .select("Age", "Gender", "Country", "state")
-        .groupBy("Country")
-        .count()
-
-      countDF.show()
+      val partitionedSurveyDF = surveyRawDF.repartition(2)
+      val countDF = countByCountry(partitionedSurveyDF)
+      logger.info(countDF.collect().mkString("->"))
 
       // Process your data
 
       logger.info("Finished Hello Spark")
+      // scala.io.StdIn.readLine()
       spark.close()
+    }
+
+    def countByCountry(surveyDF: DataFrame): DataFrame = {
+      surveyDF
+        .where("Age < 40")
+        .select("Age", "Gender", "Country", "state")
+        .groupBy("Country")
+        .count()
     }
 
     def loadSurveyDF(spark: SparkSession, dataFile: String): DataFrame = {
