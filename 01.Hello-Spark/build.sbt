@@ -17,14 +17,7 @@ val sparkDependencies = Seq(
 )
 
 val testDependencies = Seq(
-    "org.scalatest" %% "scalatest" % "3.8.0" % Test
+    "org.scalatest" %% "scalatest" % "3.2.18" % Test
 )
 
-libraryDependencies := sparkDependencies 
-// ++ testDependencies
-
-javaOptions ++= Seq(
-  "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED"
-)
-
-unmanagedResourceDirectories in Compile += baseDirectory.value
+libraryDependencies := sparkDependencies ++ testDependencies
