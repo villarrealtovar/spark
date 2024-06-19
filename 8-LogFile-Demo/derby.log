@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Jun 18 16:56:12 EDT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-2d22-c6b9-000018731740 
+on database directory /Users/javt/workspace/github.com/villarrealtovar/spark/spark-course/7-Spark-SQLTable-Demo/metastore_db with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/Users/javt/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Amazon.com Inc.
+java.runtime.version=1.8.0_392-b08
+user.dir=/Users/javt/workspace/github.com/villarrealtovar/spark/spark-course/7-Spark-SQLTable-Demo
+os.name=Mac OS X
+os.arch=x86_64
+os.version=14.4.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
